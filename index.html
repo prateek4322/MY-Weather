@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="background" id="background"></div>
+
+  <div class="container">
+    <header>
+      <h1> MY Weather</h1>
+      <div class="search-box">
+        <input type="text" id="city" placeholder="Search city..." oninput="showSuggestions(this.value)">
+        <button onclick="getWeather()">🔍</button>
+        <button onclick="getLocationWeather()">📍</button>
+        <ul id="suggestions" class="suggestions-list"></ul>
+      </div>
+    </header>
+
+    <!-- Current Weather Card -->
+    <div class="current-card" id="current-weather">
+      <div class="temp-icon">
+        <span id="weather-icon">☀️</span>
+        <span id="temperature">--°C</span>
+      </div>
+      <div class="details">
+        <h2 id="city-name">City, Country</h2>
+        <p id="description">Weather Description</p>
+        <p id="extra-info">💨 -- km/h | 🌡 Feels like --°C | 💧 --%</p>
+      </div>
+    </div>
+
+    <!-- Hourly Forecast Graph -->
+    <div class="hourly-forecast">
+      <h3>Hourly Temperature</h3>
+      <canvas id="hourlyChart"></canvas>
+    </div>
+
+    <!-- 5-Day Forecast -->
+    <div class="forecast-horizontal" id="forecast"></div>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+  </div>
+
+  <footer>
+    <p>Made with ❤️ by <strong>MY Weather Team </strong></p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
